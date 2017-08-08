@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<a href="/list">List People</a>
+<a href="/add">Add a Person</a>
+<hr />
+<table>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="person:${people}">
+        <td th:text="${person.firstName}"></td>
+        <td th:text="${person.lastName}"></td>
+        <td th:inline="text"><a th:href="@{/detail/{id}(id=${person.id})}">view</a><a
+                th:href="@{/delete/{id}(id=${person.id})}">delete</a></td>
+    </tr>
+
+
+</table>
+
+
+
+</body>
+</html>
